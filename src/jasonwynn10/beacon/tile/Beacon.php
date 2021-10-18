@@ -317,7 +317,7 @@ class Beacon extends Spawnable implements InventoryHolder {
 			$beacon = BlockFactory::get(BlockIds::BEACON);
 			$beacon->position($this->asPosition());
 			if($player instanceof Player) {
-				$this->getLevel()->getServer()->getPluginManager()->getPlugin("PM-Beacons")->getScheduler()->scheduleDelayedTask(new ClosureTask(function(int $currentTick) use ($player, $glass, $beacon) : void {
+				$this->getLevel()->getServer()->getPluginManager()->getPlugin("PM-BeaconsV2")->getScheduler()->scheduleDelayedTask(new ClosureTask(function(int $currentTick) use ($player, $glass, $beacon) : void {
 					if(!$this->level instanceof Level)
 						return; // prevent crash on despawned tiles
 					$this->getLevel()->sendBlocks([$player], [$glass], UpdateBlockPacket::FLAG_ALL_PRIORITY);
